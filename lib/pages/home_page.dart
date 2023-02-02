@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:mpesa_integration/pages/info_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -59,7 +60,13 @@ class HomePage extends StatelessWidget {
                   height: 50,
                 ),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const InfoPage()),
+                      );
+                    },
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10),
