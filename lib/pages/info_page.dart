@@ -137,27 +137,44 @@ class _InfoPageState extends State<InfoPage> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                      title: const Text('Proceed to Donate?'),
-                      content: Text("Dear " +
-                          fullNameController.text +
-                          '. Clicking "Yes" means that you are authorizing a transaction of Kshs. ' +
-                          amountController.text +
-                          ' from your M-Pesa Account. Do you wish to complete this transaction?'),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
-                        ),
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text('OK'),
-                        ),
-                      ],
-                    ),
-                  );
+                  if (fullNameController.text != '' && amountController != '') {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Proceed to Donate?'),
+                        content: Text("Dear " +
+                            fullNameController.text +
+                            ', clicking "Yes" means that you are authorizing a transaction of Kshs. ' +
+                            amountController.text +
+                            '.00 from your M-Pesa Account. Do you wish to complete this transaction?'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'Cancel'),
+                            child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text('Invalid Action!'),
+                        content: const Text(
+                            'You can not Submit Empty fields in the previous screen. Fill in the fields correctly to continue.'),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () => Navigator.pop(context, 'OK'),
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 },
                 child: Padding(
                   padding:
@@ -170,6 +187,24 @@ class _InfoPageState extends State<InfoPage> {
                     ),
                   ),
                 )),
+            SizedBox(
+              height: 90,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "poweredBy ",
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                ),
+                Image.asset(
+                  'assets/logo.png',
+                  height: 30,
+                ),
+              ],
+            ),
           ],
         ),
       ),

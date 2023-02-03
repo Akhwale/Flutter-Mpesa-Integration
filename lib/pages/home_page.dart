@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                       height: 20,
                     ),
                     Text(
-                        "Here is a dummy application for Mpesa Integration. It is designed to enable users make charity donations to a mobile number provided in the platform. When a user clicks the 'donate' button, a screen is presented prompting the user to enter personal details and the amount to be donated. Upon submission, a push notification screen appears on the interface to enble the user key in his Secret PIN information to facilitate the transaction.  "),
+                        "Here is a dummy application for Mpesa Integration. It is designed to enable users make charity donations to a mobile number provided in the platform. When a user clicks the 'donate' button, a screen is presented prompting the user to enter personal details and the amount to be donated. Upon submission, STK Push prompt appears on the interface to enble the user key in his Secret PIN information to facilitate the transaction.  "),
                     SizedBox(
                       height: 20,
                     ),
