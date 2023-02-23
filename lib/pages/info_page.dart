@@ -9,30 +9,29 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
-  Future<void> lipaNaMpesa(String phone, String amount) async {
+  Future<void> lipaNaMpesa() async {
     dynamic transactionInitialisation;
     try {
       transactionInitialisation =
           await MpesaFlutterPlugin.initializeMpesaSTKPush(
-              businessShortCode: "174379",
-              transactionType: TransactionType.CustomerPayBillOnline,
-              amount: "${amountController.text}",
-              partyA: phoneController.text,
-              partyB: "174379",
+        businessShortCode: "174379",
+        transactionType: TransactionType.CustomerPayBillOnline,
+        amount: double.parse((amountController.text)),
+        partyA: phoneController.text,
+        partyB: "174379",
 //Lipa na Mpesa Online ShortCode
-              callBackURL: Uri(
-                  scheme: "https",
-                  host: "mpesa-requestbin.herokuapp.com",
-                  path: "/1hhy6391"),
+        callBackURL: Uri(
+            scheme: "https",
+            host: "mpesa-requestbin.herokuapp.com",
+            path: "/1hhy6391"),
 //This url has been generated from http://mpesa-requestbin.herokuapp.com/?ref=hackernoon.com for test purposes
-              accountReference: "Donate to Save a child KE",
-              phoneNumber: phoneController.text,
-              baseUri: Uri(scheme: "https", host: "sandbox.safaricom.co.ke"),
-              transactionDesc: "Donation",
-              passKey:
-                  "pmeLdSk+XAh8M2iVblaOP8isomqbD/heHT5rFWzP1sZQJx258XzLxYbXpPZViXtteWwTlTuXyumnOpX4+UYXtAkwA5HhPToiXlhYlyC/s0bauAFOsvSC1XMNJx889fPWIPDYyVe6kNnXfUyFIkLCVPVQKeIZhVjfEJlmszsTzjk3s+Pmy+lHRR23YXG72/VPaF4vdS6L1oiEHS3N0FTKDUMGAg7k15Yt47oMcFJWko4i4MsY8vfvZCSQh/xBuOOv6fJHv4IDjKYo+9eUTBJJC3Mq3ClFolXkFCrmDJTyEdfPiOZCIKLxXTRjEouGzGlF4zRWoG0/VorkgpCpAEtcHg==");
-//This passkey has been generated from Test Credentials from Safaricom Portal
-
+        accountReference: "Donate to Save a child KE",
+        phoneNumber: phoneController.text,
+        baseUri: Uri(scheme: "https", host: "sandbox.safaricom.co.ke"),
+        transactionDesc: "Donation",
+        passKey:
+            "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTYwMjE2MTY1NjI3",
+      );
       return transactionInitialisation;
     } catch (e) {
       print("CAUGHT EXCEPTION: " + e.toString());
