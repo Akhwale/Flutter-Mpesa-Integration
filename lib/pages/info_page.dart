@@ -30,7 +30,7 @@ class _InfoPageState extends State<InfoPage> {
         baseUri: Uri(scheme: "https", host: "sandbox.safaricom.co.ke"),
         transactionDesc: "Donation",
         passKey:
-            "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTYwMjE2MTY1NjI3",
+            "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919",
       );
       return transactionInitialisation;
     } catch (e) {
